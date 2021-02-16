@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111130041302",
+    "project_id": "financial-assistance-aa0be",
+    "storage_bucket": "financial-assistance-aa0be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111130041302:android:0f8c7c6ff05792a3da2277",
+        "android_client_info": {
+          "package_name": "com.example.financialassistance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111130041302-4lmhin8t3ks932d4chflu0t130fg7agk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9KoQUnVd_Uz2edeP3uh3wVz_4IktVKkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111130041302-4lmhin8t3ks932d4chflu0t130fg7agk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
