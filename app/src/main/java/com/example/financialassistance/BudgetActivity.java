@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,7 +16,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 public class BudgetActivity extends AppCompatActivity {
 
@@ -23,11 +26,16 @@ public class BudgetActivity extends AppCompatActivity {
     public List<Purchase> purchases = new ArrayList<>();
     public ListView purchaseId;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_budget);
-        getPurchaseData();
+
+
+
+      getPurchaseData();
     }
 
 
@@ -35,8 +43,13 @@ public class BudgetActivity extends AppCompatActivity {
 
     public void getPurchaseData()
     {
+        Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+       int day = localCalendar.get(Calendar.DATE);
+       int month = localCalendar.get(Calendar.MONTH) + 1;
+       int year = localCalendar.get(Calendar.YEAR);
+
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference(account);
+        DatabaseReference ref = database.getReference(account + "/" +"Year -" + year+ "/" +"Month -"+ month);
 
 
         ref.addValueEventListener(new ValueEventListener() {
@@ -47,7 +60,9 @@ public class BudgetActivity extends AppCompatActivity {
                 if(dataSnapshot.getValue(Purchase.class)!= null)
                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                         purchases.add((postSnapshot.getValue(Purchase.class)));//).eventString());
+                       Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
                   }
+
                 displayPurchases();
             }
 

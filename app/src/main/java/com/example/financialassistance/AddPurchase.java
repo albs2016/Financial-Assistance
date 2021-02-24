@@ -12,6 +12,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import static java.lang.Integer.parseInt;
 
 public class AddPurchase extends AppCompatActivity {
@@ -21,11 +24,19 @@ public class AddPurchase extends AppCompatActivity {
     private String account = "Connor";
     public EditText amountId;
     public EditText descId;
+    private int month;
+    private int day;
+    private int year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_purchase);
+
+        Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+        day = localCalendar.get(Calendar.DATE);
+        month = localCalendar.get(Calendar.MONTH) + 1;
+        year = localCalendar.get(Calendar.YEAR);
     }
 
     public void saveEvent(View view) {
@@ -35,7 +46,7 @@ public class AddPurchase extends AppCompatActivity {
         amount = parseInt(amountId.getText().toString());
         desc = descId.getText().toString();
 
-        Purchase Save = new Purchase("Connor",amount, desc);
+        Purchase Save = new Purchase("Connor",amount, desc, day, month, year);
         Toast.makeText(getApplicationContext(), Save.toString(), Toast.LENGTH_LONG).show();
 
 
