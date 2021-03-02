@@ -11,6 +11,9 @@ public class Purchase {
     private int day;
     private int month;
     private int year;
+    private int minute;
+    private int second;
+    private int hour;
 
     public Purchase() {
         amount = 0;
@@ -20,15 +23,23 @@ public class Purchase {
         day = localCalendar.get(Calendar.DATE);
         month = localCalendar.get(Calendar.MONTH) + 1;
         year = localCalendar.get(Calendar.YEAR);
+        minute = localCalendar.get(Calendar.MINUTE);
+        second = localCalendar.get(Calendar.SECOND);
+        hour =  localCalendar.get(Calendar.HOUR);
+
     }
 
-    public Purchase( String account, int amount, String description, int day, int month, int year) {
+    public Purchase( String account, int amount, String description,int minute, int day, int month, int year) {
         this.amount = amount;
         this.description = description;
         this.account = account;
+        this.minute = minute;
         this.day = day;
         this.year= year;
         this.month= month;
+        Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
+        second = localCalendar.get(Calendar.SECOND);
+        hour =  localCalendar.get(Calendar.HOUR);
     }
 
     public String getAccount() { return account; }
@@ -75,9 +86,13 @@ public class Purchase {
         this.year = year;
     }
 
+    public int getMinute() { return minute; }
+
+    public void setMinute(int minute) { this.minute = minute;}
+
     public String pathString()
     {
-        return  account + "/" +"Year -" + year + "/" +"Month -"+month + "/" +"Day -" +day;
+        return  account + "/" +"Budget" +"/" +"Year -" + year + "/" +"Month -"+month + "/" + second + minute+ hour +day  ;
     }
 
     @Override

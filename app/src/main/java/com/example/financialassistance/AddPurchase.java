@@ -27,6 +27,7 @@ public class AddPurchase extends AppCompatActivity {
     private int month;
     private int day;
     private int year;
+    private int minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class AddPurchase extends AppCompatActivity {
         day = localCalendar.get(Calendar.DATE);
         month = localCalendar.get(Calendar.MONTH) + 1;
         year = localCalendar.get(Calendar.YEAR);
+        minute = localCalendar.get(Calendar.MINUTE);
     }
 
     public void saveEvent(View view) {
@@ -46,7 +48,7 @@ public class AddPurchase extends AppCompatActivity {
         amount = parseInt(amountId.getText().toString());
         desc = descId.getText().toString();
 
-        Purchase Save = new Purchase("Connor",amount, desc, day, month, year);
+        Purchase Save = new Purchase("Connor",amount, desc, minute, day, month, year);
         Toast.makeText(getApplicationContext(), Save.toString(), Toast.LENGTH_LONG).show();
 
 
