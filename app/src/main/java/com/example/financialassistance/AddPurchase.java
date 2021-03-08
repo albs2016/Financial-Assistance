@@ -92,6 +92,15 @@ public class AddPurchase extends AppCompatActivity {
 
     }
 
+    public void deleteEvent(View view) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        Purchase delete = new Purchase(account ,amount, desc,second, minute,hour, day, month, year);
+
+        DatabaseReference deleteEvents = database.getReference(delete.pathString());
+            deleteEvents.removeValue();
+
+        BackToBudget();
+    }
     public void BackToBudget()
     {
         Intent intent = new Intent(this, BudgetActivity.class);
