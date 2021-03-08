@@ -98,7 +98,7 @@ public class Purchase {
 
     public String pathString()
     {
-        return  account + "/" +"Budget" +"/" +"Year -" + year + "/" +"Month -"+month + "/" + second + minute+ hour +day  ;
+        return  account + "/" +"Budget" +"/" +"Year -" + year + "/" +"Month -"+month + "/" +day + hour+ minute + second   ;
     }
 
     @Override
