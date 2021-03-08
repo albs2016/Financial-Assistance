@@ -12,8 +12,8 @@
         <activity android:name=".AddPurchase"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".DebtActivity" />
-        <activity android:name=".BudgetActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".BudgetActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

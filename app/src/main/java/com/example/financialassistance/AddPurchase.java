@@ -21,24 +21,47 @@ public class AddPurchase extends AppCompatActivity {
 
     private int amount;
     private String desc;
-    private String account = "Connor";
+    private String account;
     public EditText amountId;
     public EditText descId;
     private int month;
     private int day;
     private int year;
     private int minute;
+    private int second;
+    private int hour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_purchase);
+        amountId = findViewById(R.id.amountId);
+        descId = findViewById(R.id.descId);
+
 
         Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
         day = localCalendar.get(Calendar.DATE);
         month = localCalendar.get(Calendar.MONTH) + 1;
         year = localCalendar.get(Calendar.YEAR);
         minute = localCalendar.get(Calendar.MINUTE);
+        hour = localCalendar.get(Calendar.HOUR);
+        second = localCalendar.get(Calendar.SECOND);
+        desc= "";
+
+        day = getIntent().getIntExtra("day", day);
+        year = getIntent().getIntExtra("year", year);
+        month = getIntent().getIntExtra("month", month);
+        hour = getIntent().getIntExtra("hour", hour);
+        second = getIntent().getIntExtra("second", second);
+        minute = getIntent().getIntExtra("minute", minute);
+        amount = getIntent().getIntExtra("amount", amount);
+        desc = getIntent().getStringExtra("desc");
+        descId.setText(desc);
+        account = getIntent().getStringExtra("account");
+
+        if (amount != 0)
+            amountId.setText(amount + "");
+
     }
 
     public void saveEvent(View view) {
@@ -48,7 +71,7 @@ public class AddPurchase extends AppCompatActivity {
         amount = parseInt(amountId.getText().toString());
         desc = descId.getText().toString();
 
-        Purchase Save = new Purchase("Connor",amount, desc, minute, day, month, year);
+        Purchase Save = new Purchase(account ,amount, desc,second, minute,hour, day, month, year);
         Toast.makeText(getApplicationContext(), Save.toString(), Toast.LENGTH_LONG).show();
 
 

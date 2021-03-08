@@ -26,10 +26,9 @@ public class Purchase {
         minute = localCalendar.get(Calendar.MINUTE);
         second = localCalendar.get(Calendar.SECOND);
         hour =  localCalendar.get(Calendar.HOUR);
-
     }
 
-    public Purchase( String account, int amount, String description,int minute, int day, int month, int year) {
+    public Purchase( String account, int amount, String description,int second, int minute, int hour, int day, int month, int year) {
         this.amount = amount;
         this.description = description;
         this.account = account;
@@ -37,9 +36,8 @@ public class Purchase {
         this.day = day;
         this.year= year;
         this.month= month;
-        Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
-        second = localCalendar.get(Calendar.SECOND);
-        hour =  localCalendar.get(Calendar.HOUR);
+        this.second = second;
+        this.hour= hour;
     }
 
     public String getAccount() { return account; }
@@ -89,6 +87,14 @@ public class Purchase {
     public int getMinute() { return minute; }
 
     public void setMinute(int minute) { this.minute = minute;}
+
+    public int getSecond() { return second; }
+
+    public void setSecond(int second) { this.second = second; }
+
+    public int getHour() { return hour; }
+
+    public void setHour(int hour) { this.hour = hour; }
 
     public String pathString()
     {
