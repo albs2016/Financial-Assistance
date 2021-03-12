@@ -29,7 +29,7 @@ import static java.lang.String.valueOf;
 
 public class BudgetActivity extends AppCompatActivity {
 
-        private String account = "Connor";
+        private String account;
         public List<Purchase> purchases = new ArrayList<>();
         public List<String> noPurchases = new ArrayList<>();
         public ListView purchaseId;
@@ -56,8 +56,8 @@ public class BudgetActivity extends AppCompatActivity {
             getPurchaseData();
             showMonth();
 
+            account = getIntent().getStringExtra("account");
             purchaseId = findViewById(R.id.purchaseId);
-
             purchaseId.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
 
@@ -76,7 +76,7 @@ public class BudgetActivity extends AppCompatActivity {
         public void getPurchaseData()
         {
             Calendar localCalendar = Calendar.getInstance(TimeZone.getDefault());
-
+            account = getIntent().getStringExtra("account");
             final FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference ref = database.getReference(account +  "/" +"Budget" + "/" +"Year -" + year+ "/" +"Month -"+ month);
 
@@ -105,6 +105,7 @@ public class BudgetActivity extends AppCompatActivity {
 
         public void getIncome()
         {
+            account = getIntent().getStringExtra("account");
             final FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference ref = database.getReference(account + "/" +"Income" +"/" +"Year -" + year + "/" +"Month -"+ month);
 
