@@ -14,6 +14,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginActivity extends AppCompatActivity {
 
     public EditText userId;
@@ -37,23 +40,23 @@ public class LoginActivity extends AppCompatActivity {
 
         username = userId.getText().toString();
         password = passwordId.getText().toString();
-        account = username+password;
+        hashPassword();
 
 
 
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference(account);
+        DatabaseReference ref = database.getReference(username + "/password");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getValue() != null && !account.equals("")) {
+                if (dataSnapshot.getValue().equals(password)) {
                     startMain();
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),"Please Enter a Valid Username" +
-                            " and Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),password +"Please Enter a Valid Username" +
+                            " and Password   " + dataSnapshot.getValue() , Toast.LENGTH_LONG).show();
                 }
             }
             @Override
@@ -75,9 +78,31 @@ public class LoginActivity extends AppCompatActivity {
     public void startMain()
     {
         Intent intent = new Intent(this, BudgetActivity.class);
-        intent.putExtra("account",account);
+        intent.putExtra("account",username);
         startActivity(intent);
     }
-
+    public void hashPassword(){
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //Add password bytes to digest
+            md.update(password.getBytes());
+            //Get the hash's bytes
+            byte[] bytes = md.digest();
+            //This bytes[] has bytes in decimal format;
+            //Convert it to hexadecimal format
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            //Get complete hashed password in hex format
+            password = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
 
