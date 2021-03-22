@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DebtActivity">
+    tools:context=".InvestmentCalculatorActivity">
+
 
     <Button
         android:id="@+id/calculateId"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:onClick="CalculateButton"
-        android:text="Calculate Debt"
+        android:text="Calculate Investment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,70 +32,69 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginTop="50dp"
-        android:text="Debt Amount:"
+        android:layout_width="154dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
+        android:text="Initial Investment Amount:"
+        android:textColor="#030101"
         app:layout_constraintEnd_toStartOf="@+id/initialAmountId"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="120dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="10dp"
         android:text="Yearly Interest Rate:"
+        android:textColor="#FD000000"
         app:layout_constraintEnd_toStartOf="@+id/interestId"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="161dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="5dp"
-        android:text="  Monthly payment Amount:"
+        android:layout_width="92dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="10dp"
+        android:text="Time(months):"
+        android:textColor="#0E0808"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/lengthId"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
         android:id="@+id/initialAmountId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="188dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
         android:id="@+id/interestId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_width="190dp"
+        android:layout_height="43dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/initialAmountId" />
 
     <EditText
         android:id="@+id/lengthId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="193dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/interestId" />
 
     <TextView
@@ -102,11 +102,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Debt Calculator"
+        android:text="Investment Calculator"
         android:textColor="#050404"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@ package com.example.financialassistance;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 import java.lang.Math;
 
 import static java.lang.Float.parseFloat;
-import static java.lang.Math.ceil;
 
 public class DebtActivity extends AppCompatActivity {
 
@@ -33,10 +31,10 @@ public class DebtActivity extends AppCompatActivity {
         yearlyInterest = 0;
         payment = 0;
 
-        debtAmountId = findViewById(R.id.debtAmountId);
+        debtAmountId = findViewById(R.id.initialAmountId);
         interestId = findViewById(R.id.interestId);
-        paymentId = findViewById(R.id.paymentId);
-        payoffId = findViewById(R.id.payoffId);
+        paymentId = findViewById(R.id.lengthId);
+        payoffId = findViewById(R.id.finalAmountId);
     }
 
     public void CalculateButton(View view)
