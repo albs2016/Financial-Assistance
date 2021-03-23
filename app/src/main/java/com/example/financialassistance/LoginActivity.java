@@ -55,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(),password +"Please Enter a Valid Username" +
-                            " and Password   " + dataSnapshot.getValue() , Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Please Enter a Valid Username" +
+                            " and Password   ", Toast.LENGTH_LONG).show();
                 }
             }
             @Override

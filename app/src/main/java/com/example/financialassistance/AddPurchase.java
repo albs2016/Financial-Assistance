@@ -78,8 +78,6 @@ public class AddPurchase extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(Save.pathString());
 
-       // DatabaseReference deleteEvents = database.getReference(account + "/" + "Event" + "/" +"Amount -"
-       //         + amount);
 
         myRef.setValue(Save)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

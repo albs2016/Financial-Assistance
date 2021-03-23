@@ -8,10 +8,13 @@
 
     <TextView
         android:id="@+id/monthId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="357dp"
+        android:layout_height="42dp"
         android:layout_marginTop="32dp"
+        android:singleLine="true"
         android:text="Monthly Budget"
+        android:textAlignment="center"
+        android:textColor="#050101"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -22,25 +25,31 @@
         android:id="@+id/add_purchase"
         android:layout_width="135dp"
         android:layout_height="56dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
         android:onClick="AddPurchaseButton"
         android:text="Add Purchase"
-        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/debtID"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/purchaseId" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/button4" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="123dp"
-        android:layout_height="33dp"
+        android:layout_width="145dp"
+        android:layout_height="25dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="5dp"
         android:text="Monthly Income:"
+        android:textAlignment="textEnd"
+        android:textAllCaps="true"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/incomeId"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/monthId" />
 
@@ -49,7 +58,7 @@
         android:layout_width="138dp"
         android:layout_height="51dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="5dp"
         android:ems="10"
         android:inputType="number"
         android:numeric="integer"
@@ -59,10 +68,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="223dp"
+        android:layout_width="400dp"
         android:layout_height="33dp"
         android:layout_marginTop="20dp"
         android:text="Purchases This Month:"
+        android:textAlignment="center"
+        android:textColor="#FD070101"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
@@ -71,9 +82,10 @@
 
     <ListView
         android:id="@+id/purchaseId"
-        android:layout_width="348dp"
-        android:layout_height="335dp"
+        android:layout_width="345dp"
+        android:layout_height="321dp"
         android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_purchase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -114,28 +126,29 @@
 
     <Button
         android:id="@+id/debtID"
-        android:layout_width="116dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:onClick="DebtButton"
         android:text="Debt"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/purchaseId" />
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="115dp"
-        android:layout_height="37dp"
+        android:layout_width="114dp"
+        android:layout_height="42dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="20dp"
         android:onClick="InvestmentButton"
         android:text="Invest"
         android:textAllCaps="false"
         android:textColor="#110505"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/purchaseId" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
