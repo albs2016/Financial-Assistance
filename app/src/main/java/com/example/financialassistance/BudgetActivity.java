@@ -171,6 +171,28 @@ public class BudgetActivity extends AppCompatActivity {
 
 
 
+    public void previousMonth(View view) {
+        month -= 1;
+        if (month == 0)
+        {
+            month = 12;
+            year -= 1;
+        }
+        showMonth();
+        getIncome();
+        getPurchaseData();
+    }
+    public void nextMonth(View view) {
+        month += 1;
+        if (month == 12)
+        {
+            month = 1;
+            year += 1;
+        }
+        showMonth();
+        getIncome();
+        getPurchaseData();
+    }
     public void showMoneyLeft() {
 
         int moneyLeft = income.getIncome() - moneySpent;
@@ -210,6 +232,8 @@ public class BudgetActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     public void showMonth() {
 
         String MonthString = "NO MONTH";
@@ -239,7 +263,7 @@ public class BudgetActivity extends AppCompatActivity {
             MonthString = "December";
 
         TextView monthView = findViewById(R.id.monthId);
-        monthView.setText(MonthString + " Budget");
+        monthView.setText(MonthString + " " + year + " Budget");
     }
 
 }

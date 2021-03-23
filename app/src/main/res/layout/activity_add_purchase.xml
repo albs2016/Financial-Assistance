@@ -7,6 +7,18 @@
     tools:context=".AddPurchase">
 
     <TextView
+        android:id="@+id/textView17"
+        android:layout_width="161dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="4dp"
+        android:text="Purchase Date:"
+        android:textAlignment="textEnd"
+        android:textColor="#0E0202"
+        app:layout_constraintEnd_toStartOf="@+id/dateId"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="404dp"
         android:layout_height="42dp"
@@ -24,13 +36,13 @@
         android:id="@+id/textView5"
         android:layout_width="161dp"
         android:layout_height="22dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="5dp"
         android:text="Purchase Amount"
         android:textAlignment="textEnd"
         android:textColor="#0E0202"
         app:layout_constraintEnd_toStartOf="@+id/amountId"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/dateId" />
 
     <TextView
         android:id="@+id/textView6"
@@ -61,12 +73,12 @@
         android:id="@+id/amountId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/dateId" />
 
     <EditText
         android:id="@+id/descId"
@@ -90,4 +102,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/save"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/dateId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

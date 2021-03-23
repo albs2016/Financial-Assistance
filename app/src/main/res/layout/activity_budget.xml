@@ -8,24 +8,23 @@
 
     <TextView
         android:id="@+id/monthId"
-        android:layout_width="357dp"
-        android:layout_height="42dp"
+        android:layout_width="283dp"
+        android:layout_height="44dp"
         android:layout_marginTop="32dp"
         android:singleLine="true"
         android:text="Monthly Budget"
         android:textAlignment="center"
         android:textColor="#050101"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightId"
+        app:layout_constraintStart_toEndOf="@+id/leftId"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/add_purchase"
         android:layout_width="135dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="16dp"
         android:onClick="AddPurchaseButton"
         android:text="Add Purchase"
         android:textAlignment="center"
@@ -33,7 +32,6 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/debtID"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/button4" />
 
     <TextView
@@ -150,5 +148,28 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/leftId"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="32dp"
+        android:onClick="previousMonth"
+        android:src="@drawable/arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/rightId"
+        android:layout_width="47dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="15dp"
+        android:onClick="nextMonth"
+        android:src="@drawable/arrow_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
